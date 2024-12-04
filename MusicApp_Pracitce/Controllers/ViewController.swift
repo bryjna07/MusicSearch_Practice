@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var musicTableView: UITableView!
     
-    
+    // 네트워크 매니저 (싱글톤)
+    var networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,5 +51,14 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    // 테이블뷰 셀의 높이를 유동적으로 조절하고 싶다면 구현할 수 있는 메서드
+    // (musicTableView.rowHeight = 120 대신에 사용가능)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+
 }
