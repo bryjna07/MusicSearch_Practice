@@ -16,20 +16,19 @@ struct MusicData: Codable {
     let results: [Music]
 }
 
-// 실제 우리가 사용하게될 음악(Music) 모델 구조체
-// (서버에서 가져온 데이터만 표시해주면 되기 때문에 일반적으로 구조체로 만듦)
+// 실제 우리가 사용하게될 음악(Music) 모델 클래스
+// (저장여부 등을 지속적으로 관리(속성 변경 여부)해줘야해서, 클래스로 만듦)
 
-// 일반적으로 옵셔널로 해주면 좋음
-struct Music: Codable {
+final class Music: Codable {
     let songName: String?
     let artistName: String?
     let albumName: String?
     let previewUrl: String?
     let imageUrl: String?
     private let releaseDate: String?
+    var isSaved: Bool = false
     
-    // 네트워크에서 주는 이름을 변환하는 방법 (원시값)
-    // (서버: trackName ===> songName)
+    // 네트워크에서 주는 이름을 변환하는 방법
     enum CodingKeys: String, CodingKey {
         case songName = "trackName"
         case artistName

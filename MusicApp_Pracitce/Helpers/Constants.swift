@@ -23,19 +23,6 @@ public enum MusicApi {
 // 문자열을 저장하는 저장소 - 실수방지, 구조체나 열거형 타입 저장속성 - 데이터 영역에 생김, 공유하는 데이터처럼 쓸 수 있음
 public struct Cell {
     static let musicCellIdentifier = "MusicCell"
-    static let musicCollectionViewCellIdentifier = "MusicCollectionViewCell"
+    static let savedMusicCellIdentifier = "SavedMusicCell"
     private init() {}
 }
-
-
-
-// 컬렉션뷰 구성을 위한 설정
-public struct CVCell {
-    static let spacingWitdh: CGFloat = 1
-    static let cellColumns: CGFloat = 3  // 3줄로 나오게
-    private init() {}
-}
-
-
-//let REQUEST_URL = "https://itunes.apple.com/search?"
-
